@@ -1,128 +1,147 @@
-# Todo Task Manager App
+# 📝 Todo Task Manager App
 
-A comprehensive task management application built with React frontend and Node.js/Express backend with MongoDB Atlas integration.
+A comprehensive, full-featured **Task Management Application** built with the **MERN stack** (MongoDB, Express, React, Node.js). It includes user authentication, real-time task management, and a responsive UI.
 
-## Features
+🔗 **Live App:** [https://to-do-app-pied-three-19.vercel.app/](https://to-do-app-pied-three-19.vercel.app/)
 
-- **User Authentication**: Register, login, and profile management
-- **Task Management**: Create, edit, delete, and complete tasks
-- **Priority Levels**: Low, Medium, High, and Urgent priorities
-- **Due Date Tracking**: Set and track task deadlines
-- **User Assignment**: Assign tasks to team members
-- **Task Filtering**: Filter by status, priority, and search terms
-- **Statistics Dashboard**: View task completion rates and analytics
-- **Responsive Design**: Modern UI that works on all devices
+---
 
-## Tech Stack
+## 🚀 Features
 
-### Backend
-- **Node.js** with Express.js
-- **MongoDB Atlas** for database
-- **JWT** for authentication
-- **bcryptjs** for password hashing
-- **Mongoose** for ODM
-- **Express Validator** for input validation
+- ✅ **User Authentication** – Register, login, JWT-based sessions  
+- ✅ **Task CRUD** – Create, edit, delete, mark tasks as completed  
+- ✅ **Priority Levels** – Low, Medium, High, Urgent  
+- ✅ **Due Dates** – Set and track task deadlines  
+- ✅ **User Assignment** – Assign tasks to team members  
+- ✅ **Filtering & Search** – Filter by status, priority, keywords  
+- ✅ **Statistics Dashboard** – View task progress analytics  
+- ✅ **Responsive UI** – Clean, mobile-friendly interface  
 
-### Frontend
-- **React 19** with TypeScript
-- **React Router** for navigation
-- **Tailwind CSS** for styling
-- **React Hook Form** for form management
-- **Axios** for API communication
-- **React Hot Toast** for notifications
-- **Heroicons** for icons
+---
 
-## Prerequisites
+## 🧰 Tech Stack
 
-- Node.js (v16 or higher)
+### 🔧 Backend
+
+- Node.js with Express.js
+- MongoDB Atlas (NoSQL database)
+- Mongoose for ODM
+- JWT for authentication
+- bcryptjs for password hashing
+- Express Validator for input validation
+
+### 🎨 Frontend
+
+- React 19 with TypeScript
+- React Router for navigation
+- Tailwind CSS for styling
+- React Hook Form for forms
+- Axios for API communication
+- React Hot Toast for notifications
+- Heroicons for icons
+
+---
+
+## ⚙️ Prerequisites
+
+- Node.js (v16+)
 - npm or yarn
 - MongoDB Atlas account
 
-## Setup Instructions
+---
 
-### 1. Clone the Repository
+## 🛠️ Setup Instructions
+
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone <repository-url>
 cd todo
+````
+
+---
+
+### 2️⃣ Backend Setup
+
+```bash
+cd backend
+npm install
 ```
 
-### 2. Backend Setup
+Create a `.env` file:
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+```env
+MONGODB_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_jwt_secret_key
+PORT=5000
+NODE_ENV=development
+```
 
-2. **Environment Configuration:**
-   - Copy `env.example` to `.env`
-   - Update the following variables:
-     ```env
-     MONGODB_URI=your_mongodb_atlas_connection_string
-     JWT_SECRET=your_jwt_secret_key
-     PORT=5000
-     NODE_ENV=development
-     ```
+Start the server:
 
-3. **MongoDB Atlas Setup:**
-   - Create a MongoDB Atlas account
-   - Create a new cluster
-   - Get your connection string
-   - Replace `your_mongodb_atlas_connection_string` in `.env`
+```bash
+npm run dev
+```
 
-4. **Start the backend server:**
-   ```bash
-   npm run dev
-   ```
+> Backend runs at: `http://localhost:5000`
 
-The backend will run on `http://localhost:5000`
+---
 
-### 3. Frontend Setup
+### 3️⃣ Frontend Setup
 
-1. **Navigate to frontend directory:**
-   ```bash
-   cd todo-frontend
-   ```
+```bash
+cd ../todo-frontend
+npm install
+```
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+Start the development server:
 
-3. **Start the development server:**
-   ```bash
-   npm start
-   ```
+```bash
+npm start
+```
 
-The frontend will run on `http://localhost:3000`
+> Frontend runs at: `http://localhost:3000`
 
-## API Endpoints
+---
 
-### Authentication
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user profile
-- `POST /api/auth/refresh` - Refresh JWT token
-- `POST /api/auth/change-password` - Change user password
+## 🔌 API Endpoints
 
-### Tasks
-- `GET /api/tasks` - Get all tasks for user
-- `POST /api/tasks` - Create a new task
-- `GET /api/tasks/:id` - Get a specific task
-- `PUT /api/tasks/:id` - Update a task
-- `DELETE /api/tasks/:id` - Delete a task
-- `POST /api/tasks/:id/assign` - Assign users to task
-- `POST /api/tasks/:id/comment` - Add comment to task
-- `POST /api/tasks/:id/complete` - Mark task as completed
+### 🔐 Authentication
 
-### Users
-- `GET /api/users/profile` - Get user profile
-- `PUT /api/users/profile` - Update user profile
-- `GET /api/users/stats` - Get user statistics
-- `GET /api/users/search` - Search users
-- `GET /api/users/:id` - Get user by ID
+| Method | Endpoint                    | Description       |
+| ------ | --------------------------- | ----------------- |
+| POST   | `/api/auth/register`        | Register new user |
+| POST   | `/api/auth/login`           | Login user        |
+| GET    | `/api/auth/me`              | Get current user  |
+| POST   | `/api/auth/refresh`         | Refresh token     |
+| POST   | `/api/auth/change-password` | Change password   |
 
-## Project Structure
+### ✅ Tasks
+
+| Method | Endpoint                  | Description           |
+| ------ | ------------------------- | --------------------- |
+| GET    | `/api/tasks`              | Get all tasks         |
+| POST   | `/api/tasks`              | Create a task         |
+| GET    | `/api/tasks/:id`          | Get task by ID        |
+| PUT    | `/api/tasks/:id`          | Update task           |
+| DELETE | `/api/tasks/:id`          | Delete task           |
+| POST   | `/api/tasks/:id/assign`   | Assign users to task  |
+| POST   | `/api/tasks/:id/comment`  | Add comment to task   |
+| POST   | `/api/tasks/:id/complete` | Mark task as complete |
+
+### 👥 Users
+
+| Method | Endpoint             | Description      |
+| ------ | -------------------- | ---------------- |
+| GET    | `/api/users/profile` | Get user profile |
+| PUT    | `/api/users/profile` | Update profile   |
+| GET    | `/api/users/stats`   | Get user stats   |
+| GET    | `/api/users/search`  | Search users     |
+| GET    | `/api/users/:id`     | Get user by ID   |
+
+---
+
+## 🗂️ Project Structure
 
 ```
 todo/
@@ -161,65 +180,89 @@ todo/
 └── README.md
 ```
 
-## Usage
+---
+
+## 🧪 Usage
 
 1. **Register/Login**: Create an account or sign in
-2. **Dashboard**: View and manage your tasks
-3. **Create Tasks**: Add new tasks with title, description, priority, and due date
-4. **Edit Tasks**: Modify existing tasks
-5. **Filter Tasks**: Use filters to find specific tasks
-6. **Complete Tasks**: Mark tasks as completed
-7. **Profile**: View your statistics and update profile information
+2. **Dashboard**: View your personal tasks
+3. **Create Tasks**: Title, description, due date, priority
+4. **Edit/Delete Tasks**: Modify or remove tasks
+5. **Filter/Search**: Narrow results by priority, status, or keyword
+6. **User Profile**: View and edit user info, stats
 
-## Features in Detail
+---
 
-### Task Management
-- **Priority Levels**: Set task priority (Low, Medium, High, Urgent)
-- **Status Tracking**: Track task status (Todo, In Progress, Review, Completed)
-- **Due Dates**: Set and track task deadlines
-- **Tags**: Add tags to categorize tasks
-- **User Assignment**: Assign tasks to team members
-- **Comments**: Add comments to tasks for collaboration
+## 🔍 Detailed Features
 
-### User Features
-- **Profile Management**: Update personal information
-- **Statistics**: View task completion rates and analytics
-- **Search**: Search for tasks by title, description, or tags
-- **Filtering**: Filter tasks by status and priority
+### ✅ Task Features
 
-### Security
-- **JWT Authentication**: Secure token-based authentication
-- **Password Hashing**: Bcrypt password encryption
-- **Input Validation**: Server-side validation for all inputs
-- **CORS Protection**: Cross-origin resource sharing protection
+* Priority: Low, Medium, High, Urgent
+* Status: Todo, In Progress, Review, Completed
+* Due Dates and countdown timers
+* Tags and filters
+* User assignment
+* Commenting system
 
-## Deployment
+### 👤 User Features
 
-### Backend Deployment
-1. Set up environment variables on your hosting platform
-2. Deploy to platforms like Heroku, Railway, or DigitalOcean
-3. Update CORS settings for your frontend domain
+* Profile updates
+* Statistics dashboard
+* Task search and filtering
 
-### Frontend Deployment
-1. Build the production version: `npm run build`
-2. Deploy to platforms like Vercel, Netlify, or GitHub Pages
-3. Update API base URL in `src/services/api.ts`
+### 🔐 Security
 
-## Contributing
+* JWT token-based auth
+* Password hashing with bcrypt
+* Input validation (server-side)
+* CORS protection for API
 
-1. Fork the repository
-2. Create a feature branch
+---
+
+## 🚀 Deployment
+
+### 🔧 Backend
+
+* Host on platforms like Render, Railway, or Heroku
+* Configure environment variables
+* Update CORS settings with frontend URL
+
+### 🌐 Frontend
+
+* Build the app:
+
+  ```bash
+  npm run build
+  ```
+* Deploy on [Vercel](https://vercel.com/)
+* Update API base URL in `src/services/api.ts`
+
+🔗 **Live App on Vercel**: [https://to-do-app-pied-three-19.vercel.app/](https://to-do-app-pied-three-19.vercel.app/)
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create a new branch
 3. Make your changes
 4. Test thoroughly
-5. Submit a pull request
+5. Submit a pull request ✅
 
-## License
+---
 
-This project is licensed under the MIT License.
+## 📄 License
 
-## Support
+This project is licensed under the **MIT License**
 
-For support, please open an issue in the GitHub repository or contact the development team. 
+---
 
-## IMPORTANT NOTE
-This project is a part of a hackathon run by https://www.katomaran.com
+## 💬 Support
+
+For help, open an issue in this repo or reach out to the development team.
+
+---
+
+## 🏁 Hackathon Note
+
+This project was created as part of a hackathon hosted by [https://www.katomaran.com](https://www.katomaran.com)
