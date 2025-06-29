@@ -138,7 +138,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const register = async (userData: any) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
-      const response = await authAPI.register(userData);
+      const payload = {
+        name: userData.firstName + ' ' + userData.lastName,
+        email: userData.email,
+        password: userData.password,
+      };
+      const response = await authAPI.register(payload);
       const { user, token } = response.data;
 
       localStorage.setItem('token', token);
