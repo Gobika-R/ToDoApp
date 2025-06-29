@@ -15,7 +15,10 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(helmet());
 app.use(morgan('combined'));
-app.use(cors());
+app.use(cors({
+  origin: 'https://to-do-app-pied-three-19.vercel.app',
+  credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
