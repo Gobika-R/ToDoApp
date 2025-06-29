@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const path = require('path');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
@@ -21,6 +22,9 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from the frontend's public directory
+app.use(express.static(path.join(__dirname, 'todo-frontend', 'public')));
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
