@@ -139,9 +139,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
       const payload = {
-        name: userData.firstName + ' ' + userData.lastName,
+        username: userData.username,
         email: userData.email,
         password: userData.password,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
       };
       const response = await authAPI.register(payload);
       const { user, token } = response.data;
